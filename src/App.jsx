@@ -1,6 +1,5 @@
-
 import React, { useState } from "react";
-import { useFormState } from "react-dom";
+
 
 const App = () => {
 const [title, setTitle] = useState("");
@@ -24,6 +23,12 @@ const [task, setTask] = useState([]); {/*ye ek array h jisme hum apne task ko st
 
     setTitle("");
     setDetails("");
+  }
+
+  const deletenote=(idx)=>{
+    const copyTask=[...task]
+    copyTask.splice(idx, 1);
+    setTask(copyTask);
   }
 
 
@@ -65,9 +70,18 @@ const [task, setTask] = useState([]); {/*ye ek array h jisme hum apne task ko st
       </form>
       <div className=" lg:w-1/2 lg:border-l-2 p-10">
       <h1 className="text-4xl font-bold"> Recent Notes </h1>
-        <div className="flex gap-5 flex-wrap mt-5 h-full overflow-auto">
+        <div className="flex gap-5 flex-wrap justify-start items-start mt-5 h overflow-auto">
         {task.map(function(elem,idx){
-          return <div key={idx}  className="h-52 w-40 rounded-xl bg-white"></div>
+          return <div key={idx}  className="flex justify-between flex-col item-start relative h-52 w-40 rounded-xl text-black py-8 px-4  pb-5 bg-[url('https://static.vecteezy.com/system/resources/thumbnails/010/793/873/small/a-lined-note-paper-covered-with-transparent-tape-on-a-yellow-background-with-a-white-checkered-pattern-free-png.png')] bg-cover bg-center">
+            <div>
+            <h3 className="leading-tight text-lg font-bold">{elem.title}</h3>
+            <p className="text-sm mt-4 text-gray-500 leading-tight font-medium">{elem.details}</p>
+            </div>
+            <button onClick={()=>{
+                 deletenote(idx)
+            }} className="w-full cursor-pointer active:scale-95 bg-red-500 text-white py-1 text-xs rounded font-bold ">Delete</button>
+          </div>
+
         })}
         </div>
       </div>
