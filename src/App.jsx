@@ -33,26 +33,25 @@ const [task, setTask] = useState([]); {/*ye ek array h jisme hum apne task ko st
 
 
 
-  return (
-    <div className="h-screen lg:flex  bg-black text-white ">
-     
-      <form onSubmit={(e)=>{
-        submitHandler(e);
-      } } className="flex  items-start lg:w-1/2 flex-col gap-4 p-10">
-         <h1 className="text-4xl font-bold">Add Notes</h1>
+    return (
+    <div className="h-screen lg:flex bg-gray-950 text-white">
+
+      <form
+        onSubmit={(e) => { submitHandler(e); }}
+        className="flex items-start lg:w-1/2 flex-col gap-4 p-10 border-r border-white/10 bg-white/5"
+      >
+        <h1 className="text-4xl font-black tracking-tight">Add Notes</h1>
         
 
         {/* PEHLA INPUT FOR HEADING */}
-        <input
-         type="text"
-          placeholder="enter task heading" 
-          className="px-5 w-full font-medium py-2 border-2 rounded outline-none"
+                <input
+          type="text"
+          placeholder="enter task heading"
+          className="px-5 w-full font-medium py-3 border border-white/10 rounded-xl outline-none bg-white/5 text-white placeholder:text-white/30 focus:border-violet-500 focus:bg-violet-500/5 transition-all"
           value={title}
-          onChange={(e)=>{
-            setTitle(e.target.value)
-            
-          }}
-          />
+          onChange={(e) => { setTitle(e.target.value) }}
+        />
+
 
           {/* DETAILED WLA INPUT */}
         <textarea
