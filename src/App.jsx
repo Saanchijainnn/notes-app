@@ -55,16 +55,15 @@ const [task, setTask] = useState([]); {/*ye ek array h jisme hum apne task ko st
 
           {/* DETAILED WLA INPUT */}
         <textarea
-        type="text" 
-        placeholder="write details here"
-        className="px-5  w-full py-2 h-32 flex flex-row items-start font-medium  border-2 rounded outline-none"
-        value={details}
-        onChange={(e)=>{
-          setDetails(e.target.value)
-        }}
-
+          placeholder="write details here"
+          className="px-5 w-full py-3 h-32 flex flex-row items-start font-medium border border-white/10 rounded-xl outline-none bg-white/5 text-white placeholder:text-white/30 focus:border-violet-500 focus:bg-violet-500/5 transition-all resize-none"
+          value={details}
+          onChange={(e) => { setDetails(e.target.value) }}
         ></textarea>
-        <button className="bg-white active:bg-blue-500 w-full text-black px-5 py-2 font-medium outline-none rounded">Add Note</button>
+
+        <button className="bg-violet-600 hover:bg-violet-500 active:bg-violet-700 w-full text-white px-5 py-3 font-bold outline-none rounded-xl transition-all">
+          + Add Note
+        </button>
         
       </form>
       <div className=" lg:w-1/2 lg:border-l-2 p-10">
